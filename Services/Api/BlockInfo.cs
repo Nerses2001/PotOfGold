@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using PotOfGold.Services.Api.Interfases;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -7,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PotOfGold.Services.Api
 {
-    internal class BlockInfo:IGetRequests
+    internal class BlockInfo
     {
         private readonly HttpClient _client ;
 

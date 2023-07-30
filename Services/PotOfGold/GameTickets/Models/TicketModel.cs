@@ -7,7 +7,9 @@ namespace PotOfGold.Services.GameTickets.Models
     {
         public bool IsActictive { get; set; } = true;
         public int Number { get; }
+  
         public  string Hash { get; }
+         
 
 
         public TicketModel(int  number, string hash) 
