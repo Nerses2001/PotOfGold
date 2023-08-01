@@ -10,7 +10,7 @@ namespace PotOfGold.Services.GameTickets.ViewModel
 {
     class TicketsViewModel
     {
-        private  List<TicketModel> TicketModels { get; } = new List<TicketModel>();
+        static  public List<TicketModel> TicketModels { get; } = new List<TicketModel>();
         private readonly BlockInfo _blockInfo;
        
 
@@ -30,10 +30,12 @@ namespace PotOfGold.Services.GameTickets.ViewModel
 
         private  async Task GetLatestBlockData()
         {
+
             TicketModel blockData = await _blockInfo.Get<TicketModel>($"{UrlConst.BaseUrlInLastBlock}{UrlConst.EndUrlInLastBlock}");
 
             if (blockData != null)
             {
+                blockData.IsActictive= false;
                 TicketModels.Add(blockData);
 
                 if (TicketModels.Count > 0) 

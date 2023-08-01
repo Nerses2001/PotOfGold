@@ -21,6 +21,7 @@ namespace PotOfGold.Services.Api
             HttpResponseMessage response = await _client.GetAsync(url);
             if (response.IsSuccessStatusCode)
             {
+                
                 string jsonResponse = await response.Content.ReadAsStringAsync();
                 return JsonConvert.DeserializeObject<T>(jsonResponse);
             }

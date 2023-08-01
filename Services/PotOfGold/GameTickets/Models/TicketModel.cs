@@ -1,10 +1,12 @@
 ﻿using System;
 using Newtonsoft.Json;
+using PotOfGold.Services.GameTickets.ViewModel;
 
 namespace PotOfGold.Services.GameTickets.Models
 {
     internal class TicketModel
     {
+        public int TicketNumber{ get;}
         public bool IsActictive { get; set; } = true;
         public int Number { get; }
   
@@ -19,6 +21,7 @@ namespace PotOfGold.Services.GameTickets.Models
 
             this.Number = number;
             this.Hash = hash;
+            TicketNumber = TicketsViewModel.TicketModels.Count + 1;
         }
       /*  public static TicketModel FromJson(string json)
         {
