@@ -75,7 +75,42 @@ namespace PotOfGold.Services.Server
                 case UrlConst.activTicets:
                     _potOfGoldViewModel.GenerateActiveTicets();
                     _viewModel.HandleGetRequestAsync(context, UrlConst.activTicets, PotOfGoldViewModel.ActiveTicetsNumbers);
+                    break;
+                default:
+                    {
+                        if (context.Request.Url.AbsolutePath.StartsWith(UrlConst.ticetWins)) 
+                        {
+                          
+                            if(int.TryParse(context.Request.Url.AbsolutePath.Split('=').Last(),out int number)) 
+                            {
+                                _potOfGoldViewModel.GetTicetWiners(number);
 
+                            }
+                            else
+                            {
+                                _potOfGoldViewModel.GetTicetWiners(0);
+
+                            }
+                            _viewModel.HandleGetRequestAsync(context, context.Request.Url.AbsolutePath, PotOfGoldViewModel.WinUsers);
+
+                        } 
+                        
+                        if(context.Request.Url.AbsolutePath.StartsWith(UrlConst.ticetWins))
+                        {
+                            if (int.TryParse(context.Request.Url.AbsolutePath.Split('=').Last(), out int number))
+                            {
+                                _potOfGoldViewModel.GetTicetWiners(number);
+
+                            }
+                            else
+                            {
+                                _potOfGoldViewModel.GetTicetWiners(0);
+
+                            }
+                            _viewModel.HandleGetRequestAsync(context, context.Request.Url.AbsolutePath, PotOfGoldViewModel.Losers);
+                        }
+                    }
+                    
                     break;
 
 

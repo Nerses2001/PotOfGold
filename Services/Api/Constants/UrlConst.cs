@@ -9,6 +9,8 @@
         public const string endUrlStartGame = "/startgame";
         public const string endUrlEndBlocks = "/endblocks";
         public const string activTicets = "/activeTicets";
+        public const string ticetWins = "/winticket=";
+        public const string ticetLose = "/losticket=";
 
 
     }
